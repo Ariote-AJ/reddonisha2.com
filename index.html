@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Donisha Consulting Services - Nigeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d10000;
+            --primary-gradient: linear-gradient(135deg, #d10000 40%, #8f0905 100%);
+            --accent: #fff;
+            --glass: rgba(255,255,255,0.98);
+            --text-dark: #180202;
+            --text-light: #fff;
+            --radius-lg: 26px;
+            --radius-md: 13px;
+            --shadow-lg: 0 8px 44px rgba(209,0,0,0.18), 0 3px 16px rgba(0,0,0,0.10);
+            --shadow-md: 0 4px 18px rgba(209,0,0,0.15), 0 2px 6px rgba(0,0,0,0.09);
+            --gap-lg: 46px;
+            --gap-md: 24px;
+            --gap-sm: 14px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--accent);
+            color: var(--text-dark);
+            font-family: 'Inter', Arial, sans-serif;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0 0 0;
+            margin-bottom: 24px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 4px 16px rgba(209,0,0,0.16);
+            background: #fff;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-text .main {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 1.6px;
+            line-height: 1.1;
+            text-shadow: 0 2px 6px #fff7, 0 1px 1px #d1000030;
+        }
+        .logo-text .tagline {
+            font-size: 1.13rem;
+            font-weight: 700;
+            letter-spacing: 2.1px;
+            margin-top: -8px;
+            color: #8e284b;
+        }
+        .logo-text .motto {
+            font-size: 0.99rem;
+            font-style: italic;
+            color: #713228;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+        }
+        nav.desktop-nav {
+            display: flex;
+            gap: 31px;
+        }
+        nav.desktop-nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 4px 10px;
+            border-radius: 7px;
+            transition: background 0.15s, color .17s;
+        }
+        nav.desktop-nav a:hover,
+        nav.desktop-nav a:focus {
+            background: var(--primary-gradient);
+            color: #fff;
+            outline: none;
+        }
+        .hamburger {
+            width: 48px;
+            height: 48px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            border-radius: 50%;
+            background: rgba(209,0,0,0.09);
+            transition: background 0.25s;
+            align-items: center;
+        }
+        .hamburger span,
+        .hamburger span::before,
+        .hamburger span::after {
+            display: block;
+            height: 4px;
+            width: 32px;
+            background: var(--primary);
+            border-radius: 2px;
+            position: relative;
+            margin: 7px auto;
+            transition: all 0.44s cubic-bezier(.55,.06,.68,.19);
+        }
+        .hamburger.active span {
+            background: transparent;
+        }
+        .hamburger.active span::before {
+            transform: rotate(-45deg) translate(-8px,7px);
+        }
+        .hamburger.active span::after {
+            transform: rotate(45deg) translate(-8px,-8px);
+        }
+        .hamburger span::before,
+        .hamburger span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right:0;
+            height: 4px;
+            width: 32px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .hamburger span::before {
+            top: -11px;
+        }
+        .hamburger span::after {
+            top: 11px;
+        }
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(255, 255, 255, 0.18);
+            z-index: 2000;
+            animation: fadeInOverlay 0.18s;
+        }
+        @keyframes fadeInOverlay {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .mobile-nav {
+            position: fixed;
+            right: 22px;
+            top: 76px;
+            width: 270px;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            flex-direction: column;
+            padding: 28px 0 12px 0;
+            z-index: 2100;
+            animation: navAppear 0.2s ease-in;
+        }
+        .mobile-nav.open {
+            display: flex;
+        }
+        .mobile-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 1.09rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            transition: background 0.18s, color 0.18s;
+            outline: none;
+        }
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background: #b30410;
+            color: #fffbe9;
+            outline: none;
+        }
+        @keyframes navAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* NEW HERO SECTION - Inspired by the image */
+        .hero {
+            margin: var(--gap-md) 0;
+            padding: 80px 15px 70px 15px;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 35px;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            left: -70px; bottom: -34px;
+            width: 320px; height: 130px;
+            background: radial-gradient(circle at left bottom, #fff4, transparent 80%);
+            z-index: 0;
+        }
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0 auto 20px auto;
+            line-height: 1.16;
+            max-width: 95vw;
+            z-index: 1;
+            letter-spacing: 0.4px;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            z-index: 1;
+            color: #ffd2d9;
+        }
+        .hero .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 9px;
+            font-size: 1.1rem;
+            border: 2px solid #fff;
+            transition: background 0.22s, color 0.16s, border 0.16s, transform 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .cta-btn:hover,
+        .cta-btn:focus {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            outline: none;
+            transform: translateY(-3px);
+        }
+        .cta-btn.secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        .cta-btn.secondary:hover {
+            background: #fff;
+            color: var(--primary);
+        }
+        
+        /* NEW SECTION: Work With RED */
+        .work-with-red {
+            padding: 60px 20px;
+            text-align: center;
+            background: #f8f8f8;
+            border-radius: var(--radius-lg);
+            margin: var(--gap-lg) 0;
+        }
+        .work-with-red h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .work-with-red p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #5b1a1e;
+        }
+        
+        /* NEW SECTION: Unlock Potential */
+        .unlock-potential {
+            padding: 80px 20px;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--gap-lg) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .unlock-potential::before {
+            content: '';
+            position: absolute;
+            right: -120px; bottom: -60px;
+            width: 350px; height: 90px;
+            background: radial-gradient(circle at right bottom, #fff6, transparent 65%);
+            z-index: 0;
+        }
+        .unlock-potential h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .unlock-potential p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+            color: #ffd2d9;
+        }
+        
+        /* NEW SECTION: Frustrations */
+        .frustrations {
+            padding: 60px 20px;
+            text-align: center;
+            margin: var(--gap-lg) 0;
+        }
+        .frustrations h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+        .frustrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--gap-md);
+        }
+        .frustration-item {
+            background: var(--glass);
+            padding: 30px 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .frustration-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(209,0,0,0.15);
+        }
+        .frustration-item h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .frustration-item p {
+            font-size: 1.1rem;
+            color: #5b1a1e;
+        }
+        
+        /* NEW SECTION: Unknowns Costing */
+        .unknowns-costing {
+            padding: 60px 20px;
+            background: #f8f8f8;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--gap-lg) 0;
+        }
+        .unknowns-costing h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .unknowns-costing p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #5b1a1e;
+        }
+        
+        /* FIXED: Image Banner Section */
+        .image-banner {
+    height: 500px;
+    background: url('Picture/3b838e8cfa9a10073c9b9efa3dce1268.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--gap-lg) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-banner::before 
+}
+
+.image-banner-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    max-width: 800px;
+    padding: 40px;
+    position: relative;
+     /* Dark background for text only */
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+}
+
+.image-banner h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.image-banner p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+        
+        .image-banner-content {
+            text-align: center;
+            
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .image-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .image-banner p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive grid for services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--gap-md);
+            margin: var(--gap-md) 0 var(--gap-lg) 0;
+        }
+        .service-card {
+            background: var(--glass);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 31px 20px;
+            border-left: 7px solid var(--primary);
+            border-right: 5px solid #ffd2d9;
+            transition: box-shadow 0.24s, transform 0.19s, border 0.14s;
+            backdrop-filter: blur(9px);
+            position: relative;
+            z-index: 1;
+            min-height: 170px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 11px;
+        }
+        .service-card:hover,
+        .service-card:focus-within {
+            box-shadow: 0 14px 38px rgba(209,0,0,0.19);
+            transform: translateY(-4px) scale(1.02);
+            border-left: 9px solid #ba0209;
+        }
+        .service-card h3 {
+            font-size: 1.19rem;
+            color: var(--primary);
+            font-weight: 760;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            font-size: 1.09rem;
+            color: #472122;
+            line-height: 1.63;
+        }
+        .service-card ul {
+            padding-left: 20px;
+            color: #6b2922;
+            font-size: 0.98rem;
+        }
+        /* New content: each service more context */
+        .service-card ul {
+            margin-top : 5px;
+        }
+        /* Stats Section */
+        .stats {
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            padding: 36px 12px 30px 12px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            margin-bottom: var(--gap-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .stats::before {
+            content: '';
+            position: absolute;
+            right: -120px; bottom: -60px;
+            width: 350px; height: 90px;
+            background: radial-gradient(circle at right bottom, #fff6, transparent 65%);
+            z-index: 0;
+        }
+        .stats h2 {
+            font-size: 1.19rem;
+            font-weight: 800;
+            letter-spacing: 0.7px;
+            margin-bottom: 17px;
+            position: relative;
+            z-index: 1;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: var(--gap-sm);
+            margin: 0 auto;
+            max-width: 440px;
+            position: relative;
+            z-index: 1;
+        }
+        .stat-item {
+            padding: 15px 7px;
+            border-radius: var(--radius-md);
+            background: rgba(255,255,255,0.18);
+            box-shadow: 0 1px 9px rgba(0,0,0,0.10);
+            margin-bottom: 4px;
+            transition: background 0.18s, transform 0.22s;
+        }
+        .stat-item:hover {
+            background: #fff8;
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+        .stat-item h3 {
+            font-size: 2.2rem;
+            margin-bottom: 7px;
+            font-weight: 700;
+            color: white;
+        }
+        .stat-item p {
+            font-size: 1rem;
+            font-weight: 550;
+            color: #fffbe9;
+            margin-bottom: 0;
+        }
+        .mission {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-md);
+            background: var(--accent);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 35px 15px 22px 15px;
+            margin-bottom: var(--gap-lg);
+            position: relative;
+            isolation: isolate;
+        }
+        .mission::after {
+            content: '';
+            position: absolute;
+            left: -60px; top: -26px;
+            width: 180px; height: 56px;
+            background: radial-gradient(circle at left top, #d1000098, transparent 70%);
+            z-index: 0;
+        }
+        .mission-text h2 {
+            font-size: 1.24rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 0.8px;
+        }
+        .mission-text p {
+            font-size: 1.09rem;
+            margin-bottom: 8px;
+            color: #5b1a1e;
+        }
+        .mission-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: var(--gap-sm);
+        }
+        .value-item {
+            background: var(--glass);
+            padding: 22px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 3px 16px rgba(209,0,0,0.10);
+            border-top: 5px solid var(--primary);
+            animation: fadeIn 0.8s;
+            backdrop-filter: blur(8px);
+            transition: box-shadow 0.17s, transform 0.11s;
+            position: relative;
+        }
+        .value-item:hover,
+        .value-item:focus-within {
+            box-shadow: var(--shadow-md), 0 7px 24px #d1000022;
+            transform: scale(1.04) translateY(-2px);
+            border-top: 6px solid #b30410;
+        }
+        .value-item h4 {
+            color: var(--primary);
+            margin-bottom: 7px;
+            font-size: 1.14rem;
+            font-weight: 650;
+        }
+        .value-item p {
+            font-size: 1.04rem;
+        }
+        .team-section, .clients-section {
+            background: var(--accent);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 34px 14px 23px 14px;
+            margin-bottom: var(--gap-lg);
+            position: relative;
+            isolation: isolate;
+        }
+        .team-section h2, .clients-section h2 {
+            font-size: 1.21rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 19px;
+            letter-spacing: 0.75px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--gap-sm);
+        }
+        .team-member {
+            background: var(--glass);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 16px rgba(209,0,0,0.11);
+            border-left: 4px solid var(--primary);
+            transition: all 0.18s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 7px 22px rgba(209,0,0,0.18);
+        }
+        .team-member h3 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin-bottom: 4px;
+            font-weight: 650;
+        }
+        .team-member p {
+            font-size: 0.97rem;
+            color: #5b1a1e;
+        }
+        .clients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 13px;
+        }
+        .client-item {
+            background: var(--glass);
+            padding: 13px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 2px 11px rgba(209,0,0,0.10);
+            font-size: 0.99rem;
+            transition: all 0.19s ease;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .client-item:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 18px rgba(209,0,0,0.14);
+            background: #fff5;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background: var(--primary-gradient);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 40px 16px 32px 16px;
+            margin-bottom: var(--gap-lg);
+            text-align: center;
+            position: relative;
+        }
+        .testimonial-section h2 {
+            color: #ffd7de;
+            font-size: 1.23rem;
+            margin-bottom: 17px;
+        }
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 19px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: rgba(255,255,255,0.18);
+            border-radius: var(--radius-md);
+            box-shadow: 0 2px 8px rgba(209,0,0,0.08);
+            padding: 18px 14px;
+            position: relative;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: #ffd2d9;
+            margin-top: 8px;
+            font-size: 1.01rem;
+            letter-spacing: 0.2px;
+        }
+        .testimonial-role {
+            font-size: 0.94rem;
+            color: #fff8;
+        }
+        .testimonial-quote {
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.04rem;
+            line-height: 1.65;
+        }
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--primary);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 31px;
+            box-shadow: 0 0 20px rgba(209, 0, 0, 0.45);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            animation: pulse 2.2s infinite;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.13);
+            box-shadow: 0 0 25px rgba(209, 0, 0, 0.6);
+            animation: none;
+        }
+        .whatsapp-float:active {
+            transform: scale(0.98);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(209, 0, 0, 0.5);}
+            70%{ box-shadow: 0 0 0 18px rgba(209, 0, 0, 0);}
+            100%{ box-shadow: 0 0 0 0 rgba(209, 0, 0, 0);}
+        }
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        footer {
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            padding: 33px 14px 20px 14px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            box-shadow: var(--shadow-md);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1 1 240px;
+            min-width: 200px;
+        }
+        .footer-section h3 {
+            font-size: 1.18rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.7px;
+        }
+        .footer-section p,
+        .footer-section a {
+            font-size: 1.07rem;
+            color: #ffd2d9;
+            margin-bottom: 7px;
+            text-decoration: none;
+            line-height: 1.4;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        .footer-social {
+            margin-top: 10px;
+            display: flex;
+            gap: 13px;
+            align-items: center;
+        }
+        .footer-social a {
+            background: #fff4;
+            border-radius: 50%;
+            width: 29px;
+            height: 29px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.25rem;
+            transition: background .18s;
+        }
+        .footer-social a:hover {
+            background: #fff;
+            color: #d10000;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #ffd2d9;
+            opacity: 0.8;
+            padding-top: 13px;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        /* Responsive Styling */
+        @media (max-width: 900px) {
+            .container {
+                max-width: 99vw;
+                padding: 2vw;
+            }
+            .footer-content {
+                gap: 21px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .unlock-potential h2 {
+                font-size: 2rem;
+            }
+            .unlock-potential p {
+                font-size: 1.1rem;
+            }
+            .image-banner {
+                height: 300px;
+            }
+            .image-banner h2 {
+                font-size: 2rem;
+            }
+            .image-banner p {
+                font-size: 1.1rem;
+            }
+        }
+        @media (max-width: 680px) {
+            header, .footer-content {
+                flex-direction: column;
+                gap: 13px;
+            }
+            footer {
+                border-radius: var(--radius-lg);
+            }
+            nav.desktop-nav {
+                display: none;
+            }
+            .hamburger { display: flex;}
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 6px;
+            }
+            .logo-img {
+                width: 74px;
+                height: 74px;
+            }
+            .logo-text .main {
+                font-size: 1.82rem;
+            }
+            .logo-text .tagline {
+                font-size: 0.97rem;
+            }
+            .mobile-nav {
+                top: 74px;
+                right: 7vw;
+                width: 87vw;
+                min-width: 170px;
+            }
+            .hero {
+                padding: 40px 3px 30px 3px;
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .services,
+            .stats-grid,
+            .mission-values,
+            .team-grid,
+            .clients-list,
+            .testimonial-slider,
+            .frustrations-grid {
+                grid-template-columns: 1fr;
+            }
+            .mission, .team-section, .clients-section, .testimonial-section {
+                padding: 13px 7px;
+                font-size: 1rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 18px;
+                right: 13px;
+            }
+            .whatsapp-icon {
+                width: 24px;
+                height: 24px;
+            }
+            .work-with-red h2,
+            .unlock-potential h2,
+            .frustrations h2,
+            .unknowns-costing h2 {
+                font-size: 1.7rem;
+            }
+            .work-with-red p,
+            .unlock-potential p,
+            .frustrations p,
+            .unknowns-costing p {
+                font-size: 1.1rem;
+            }
+            .image-banner {
+                height: 250px;
+            }
+            .image-banner h2 {
+                font-size: 1.7rem;
+            }
+            .image-banner p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 450px) {
+            .container {
+                padding: 3vw;
+            }
+            .footer-section h3, .team-section h2, .clients-section h2, .mission-text h2 {
+                font-size: 1.07rem;
+            }
+            .hero h1 { font-size: 1.7rem;}
+            .service-card h3 { font-size: 0.99rem;}
+            .service-card p, .client-item, .team-member p { font-size: 0.94rem;}
+            .work-with-red h2,
+            .unlock-potential h2,
+            .frustrations h2,
+            .unknowns-costing h2 {
+                font-size: 1.5rem;
+            }
+            .work-with-red p,
+            .unlock-potential p,
+            .frustrations p,
+            .unknowns-costing p {
+                font-size: 1rem;
+            }
+            .image-banner {
+                height: 200px;
+            }
+            .image-banner h2 {
+                font-size: 1.5rem;
+            }
+            .image-banner p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="Picture/WhatsApp Image 2025-11-10 at 1.43.51 PM.jpeg" alt="Red Donisha Consulting Services Logo" class="logo-img">
+                <div class="logo-text">
+                    <div class="main">RED DONISHA</div>
+                    <div class="tagline">CONSULTING SERVICES</div>
+                    <div class="motto">...serving with integrity</div>
+                </div>
+            </div>
+            <nav class="desktop-nav" aria-label="Main navigation">
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#team">Our Team</a>
+                <a href="#clients">Clients</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div id="hamburger" class="hamburger" aria-label="Open navigation" tabindex="0"><span></span></div>
+            <div id="mobileNavOverlay" class="mobile-nav-overlay"></div>
+            <nav id="mobileNav" class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#team">Our Team</a>
+                <a href="#clients">Clients</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+        <main id="main" tabindex="-1">
+            <!-- FIXED: Image Banner Section -->
+            <section class="image-banner">
+                <div class="image-banner-content">
+                    <h2 style="color: #fffbe9;">RED DONISHA CONSULTING SERVICE</h2>
+                    <p style="color:#fffbe9 ;">Unlock Your Company's True Earnings Potential</p>
+                    <div class="cta-btns">
+                        <a class="cta-btn" href="#services">Explore Our Services</a>
+                        <a class="cta-btn secondary" href="https://wa.me/2348090941514" target="_blank">Get Started Today</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- NEW: Work With RED Section -->
+            <section class="work-with-red" id="work-with-red">
+                <h2>Work With RED</h2>
+                <p>Partner with us to transform your business challenges into opportunities for growth and profitability.</p>
+                <div class="cta-btns">
+                    <a class="cta-btn" href="#services">Explore Our Services</a>
+                    <a class="cta-btn secondary" href="https://wa.me/2348090941514" target="_blank">Get Started Today</a>
+                </div>
+            </section>
+            
+            <!-- NEW: Unlock Potential Section -->
+            <section class="unlock-potential">
+                <h2>Unlock Your Company's True Earnings Potential</h2>
+                <p>Our PASTV business review pinpoints opportunities to accelerate revenue and profit by 20% or more.</p>
+                <div class="cta-btns">
+                    <a class="cta-btn" href="#contact">Get in touch</a>
+                </div>
+            </section>
+            
+            <!-- NEW: Frustrations Section -->
+            <section class="frustrations">
+                <h2>Overcome Business Frustrations</h2>
+                <div class="frustrations-grid">
+                    <div class="frustration-item">
+                        <h3>Increase Alignment</h3>
+                        <p>Align your team, processes, and goals for maximum efficiency and productivity.</p>
+                    </div>
+                    <div class="frustration-item">
+                        <h3>Boost Profitability</h3>
+                        <p>Implement strategies that directly impact your bottom line and drive sustainable growth.</p>
+                    </div>
+                    <div class="frustration-item">
+                        <h3>Streamline Operations</h3>
+                        <p>Optimize your business processes to reduce costs and improve overall performance.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- NEW: Unknowns Costing Section -->
+            <section class="unknowns-costing">
+                <h2>How Much Are Unknowns Costing Your Business?</h2>
+                <p>Unidentified issues in your tax compliance, financial reporting, or operational processes could be silently draining your resources and limiting your growth potential.</p>
+                <div class="cta-btns">
+                    <a class="cta-btn" href="#contact">Schedule a Free Consultation</a>
+                </div>
+            </section>
+            
+            <section class="hero" aria-label="Intro section" id="about">
+                <div class="hero-content">
+                    <h1>Expert Tax, Consulting & Auditing Solutions for Your Success</h1>
+                    <p>
+                        Red Donisha Consulting Services is your trusted partner for tax, accounting, and consulting in Nigeria. Leveraging over a decade of expertise and relationships with key regulatory bodies (FIRS, LIRS, CAC), we simplify compliance, help you grow confidently, and secure your business future. Discover transparent, responsive, professional service tailored to your needs.
+                    </p>
+                    <div class="cta-btns">
+                        <a class="cta-btn" href="#services">Explore Our Services</a>
+                        <a class="cta-btn secondary" href="https://wa.me/2348090941514" target="_blank">WhatsApp Us</a>
+                    </div>
+                </div>
+            </section>
+            <section class="services" aria-label="Our Services" id="services">
+                <div class="service-card" tabindex="0">
+                    <h3>Tax Planning & Consulting</h3>
+                    <p>
+                        Strategic tax advisory to help minimize risks, maximize efficiency, and ensure full compliance for your business. Expert representation in cases of audits, disputes, or regulatory queries.
+                        <ul>
+                            <li>Tax diagnostics & health reviews</li>
+                            <li>Dispute resolution & mediation</li>
+                            <li>Custom tax strategies</li>
+                            <li>Cross-border and expatriate tax advice</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>VAT Remittance</h3>
+                    <p>
+                        Hassle-free calculation, documentation, and submission of Monthly VAT returns—keeping your business in good standing with authorities.
+                        <ul>
+                            <li>Accurate VAT computations and filing</li>
+                            <li>Compliance checks</li>
+                            <li>Timely submission reminders</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>PAYE Processing</h3>
+                    <p>
+                        Seamless payroll tax processing and representation—ensuring your staff payroll complies with all statutory obligations without error.
+                        <ul>
+                            <li>Pension & NSITF integration</li>
+                            <li>Employee records management</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>Annual Returns & Filing</h3>
+                    <p>
+                        Complete preparation and submission of annual returns (including zero returns for exempt companies) quickly and accurately.
+                        <ul>
+                            <li>FIRS and state returns included</li>
+                            <li>Document management & archiving</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>Tax Clearance Processing</h3>
+                    <p>
+                        Fast, reliable advice and documentation for obtaining business & personal tax clearance certificates—essential for contracts and compliance.
+                        <ul>
+                            <li>Requirements checklist</li>
+                            <li>Follow-up with authorities</li>
+                            <li>Renewal support</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>Auditing & Assurance</h3>
+                    <p>
+                        Rigorous reviews of accounting systems and controls to ensure reliability, security, and transparency. Improve your reputation and stakeholder confidence.
+                        <ul>
+                            <li>Internal & external audit</li>
+                            <li>Risk assessment</li>
+                            <li>Control recommendations</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>Financial Accounting</h3>
+                    <p>
+                        Preparation of end-of-year accounts for limited, public & enterprise businesses, and financial statement advisory.
+                        <ul>
+                            <li>IFRS compliance</li>
+                            <li>Management accounts for business decision-making</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="service-card" tabindex="0">
+                    <h3>Company Registration (CAC)</h3>
+                    <p>
+                        End-to-end facilitation for business incorporation and statutory registrations at the Corporate Affairs Commission.
+                        <ul>
+                            <li>Name reservation & filing</li>
+                            <li>Advice on appropriate business type (Ltd, NGO, etc.)</li>
+                            <li>Post-incorporation support</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+            <section class="stats" aria-label="Business Statistics">
+                <h2>Our Professional Affiliations & Reach</h2>
+                <div class="stats-grid">
+                    <div class="stat-item" tabindex="0">
+                        <h3>15+</h3>
+                        <p>Years Combined Experience</p>
+                    </div>
+                    <div class="stat-item" tabindex="0">
+                        <h3>100+</h3>
+                        <p>Businesses Served Nationwide</p>
+                    </div>
+                    <div class="stat-item" tabindex="0">
+                        <h3>FIRS</h3>
+                        <p>Federal Inland Revenue Service</p>
+                    </div>
+                    <div class="stat-item" tabindex="0">
+                        <h3>LIRS</h3>
+                        <p>Lagos Inland Revenue Service</p>
+                    </div>
+                    <div class="stat-item" tabindex="0">
+                        <h3>CAC</h3>
+                        <p>Corporate Affairs Commission</p>
+                    </div>
+                    <div class="stat-item" tabindex="0">
+                        <h3>ICAN</h3>
+                        <p>Institute of Chartered Accountants</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mission" aria-label="Mission and Values">
+                <div class="mission-text">
+                    <h2>Our Mission & Values</h2>
+                    <p>
+                        Red Donisha Consulting Services is committed to empowering individuals and organizations to succeed in Nigeria's complex financial environment with trustworthy, personalized consulting and compliance solutions. We live by our values:
+                    </p>
+                </div>
+                <div class="mission-values">
+                    <div class="value-item" tabindex="0">
+                        <h4>Integrity</h4>
+                        <p>We maintain honesty and strong principles in every client engagement.</p>
+                    </div>
+                    <div class="value-item" tabindex="0">
+                        <h4>Accountability</h4>
+                        <p>We fully own our work and ensure timely delivery of results.</p>
+                    </div>
+                    <div class="value-item" tabindex="0">
+                        <h4>Due Diligence</h4>
+                        <p>Careful, thorough attention is given to all our professional tasks.</p>
+                    </div>
+                    <div class="value-item" tabindex="0">
+                        <h4>Transparency</h4>
+                        <p>Clear, honest communication throughout every project.</p>
+                    </div>
+                    <div class="value-item" tabindex="0">
+                        <h4>Teamwork</h4>
+                        <p>Harnessing the power of collaboration for the benefit of our clients.</p>
+                    </div>
+                    <div class="value-item" tabindex="0">
+                        <h4>Continuous Learning</h4>
+                        <p>We stay updated on regulatory changes for proactive advice.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="team-section" id="team">
+                <h2>Our Human Capital</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Mercy Ariote</h3>
+                        <p>Managing Director – Tax Consultant<br><i>ICAN Certified</i></p>
+                    </div>
+                    <div class="team-member">
+                        <h3> Nwala John</h3>
+                        <p>Managing Partner – Chartered Accountant<br><i>FIRS Expert</i></p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Samuel Ogunsanwo</h3>
+                        <p>Senior Associate<br><i>Auditing & Assurance</i></p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Paul Agiode</h3>
+                        <p>Associate 1<br><i>Financial Accounting</i></p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Cynthia Okolie</h3>
+                        <p>Associate 2<br><i>Company Registrations</i></p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Nwachukwu Chinenye</h3>
+                        <p>Associate 3</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Onwuekwe Linderline K.</h3>
+                        <p>Associate 4</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Nwoke Favour S.</h3>
+                        <p>Associate 5</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Agbo Idoko</h3>
+                        <p>Associate</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Itoro Glory</h3>
+                        <p>Associate 7</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Sarah Wisdom O.</h3>
+                        <p>Personal Assistant</p>
+                    </div>
+                </div>
+            </section>
+            <section class="clients-section" id="clients">
+                <h2>Major Clients</h2>
+                <p>We proudly serve Nigeria's leading organizations:</p>
+                <div class="clients-list">
+                    <div class="client-item">Dolak Ventures Limited <span>(Oil & Gas)</span></div>
+                    <div class="client-item">Zandas Global Resources <span>(Trading)</span></div>
+                    <div class="client-item">Zandas Beauty & Fragrance International <span>(General Merchandise)</span></div>
+                    <div class="client-item">Lion Unisco <span>(Construction)</span></div>
+                    <div class="client-item">Adveem Nigeria Limited <span>(Clearing & Forwarding)</span></div>
+                    <div class="client-item">Rollyking Hotel & Suites <span>(Hospitality)</span></div>
+                    <div class="client-item">Jifa Industry Nigeria Limited <span>(Manufacturing)</span></div>
+                    <div class="client-item">Ansyl International <span>(Construction)</span></div>
+                    <div class="client-item">Dayclar Global Ventures <span>(Real Estate)</span></div>
+                    <div class="client-item">Arythium Technologies <span>(ICT)</span></div>
+                </div>
+            </section>
+            <section class="testimonial-section" id="testimonials">
+                <h2>Client Testimonials</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"Red Donisha Consulting delivered our tax clearance quickly and professionally. Their team was patient, always available on WhatsApp, and explained every step!"</div>
+                        <div class="testimonial-name">Dolak Ventures</div>
+                        <div class="testimonial-role">Finance Director</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"Friendly staff and seamless annual returns. We recommend Red Donisha for honest, affordable accounting and advice."</div>
+                        <div class="testimonial-name">Adveem Nigeria Limited</div>
+                        <div class="testimonial-role">CEO</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"Our audit with Red Donisha was above expectation—transparent, quick, and helped us implement better controls. Highly recommend."</div>
+                        <div class="testimonial-name">Zandas Global Resources</div>
+                        <div class="testimonial-role">Account Manager</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/2348090941514" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.176-1.24-6.165-3.495-8.411"/>
+            </svg>
+        </a>
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RED DONISHA CONSULTING SERVICES</h3>
+                    <p>In partnership with Joseph Nwala & Co.</p>
+                    <p>Dedicated, talented professionals with strong team spirit and integrity.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/2348090941514" aria-label="WhatsApp"><svg width="18" height="18" fill="none"><path d="M15 12c-.2-.1-1-1-1.2-1.1s-.3-.1-.5.05c-.2.2-.4.6-.5.7s-.2.1-.4.05c-.2-.1-.9-.3-1.7-1-.6-.5-1-1.1-1.1-1.3s0-.3.1-.4.1-.2.2-.3c.1-.1.2-.2.2-.4.1-.1 0-.2 0-.3 0-.1-.5-1.1-.6-1.5-.2-.4-.3-.3-.4-.3s-.3 0-.4 0c-.1 0-.4.05-.6.3-.2.2-.8.7-.8 1.7s.8 2 1 2.2c.1.2 1.6 2.3 3.7 3.2.5.2.9.3 1.2.5.5.2 1 .1 1.4.1.4-.05 1-.5 1.1-.9.2-.5.2-.9.1-1-.1 0-.2-.2-.4-.3z" fill="#fff"/></svg></a>
+                        <a href="mailto:reddonishaconsulting@gmail.com" aria-label="Gmail"><svg width="18" height="18" fill="none"><path d="M16 4v10a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2zm-9 5l3 2 3-2V6l-3 2-3-2v3z" fill="#fff"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Address: Suit 1, Block B, Aosee Plaza, Alakija, 3rd Gate, Festac, Lagos</p>
+                    <p><a href="tel:08090941514">08090941514</a></p>
+                    <p><a href="tel:08055830773">08055830773</a></p>
+                    <p><a href="mailto:reddonishaconsulting@gmail.com">reddonishaconsulting@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <p>Tax Planning & Consulting</p>
+                    <p>VAT Remittance</p>
+                    <p>PAYE Processing</p>
+                    <p>Annual Returns</p>
+                    <p>Tax Clearance</p>
+                    <p>Auditing & Assurance</p>
+                    <p>Financial Accounting</p>
+                    <p>Company Registration</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RED DONISHA CONSULTING SERVICES. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Responsive Nav
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        function closeNav() {
+            mobileNav.classList.remove('open');
+            hamburger.classList.remove('active');
+            mobileNavOverlay.style.display = "none";
+        }
+        function openNav() {
+            mobileNav.classList.add('open');
+            hamburger.classList.add('active');
+            mobileNavOverlay.style.display = "block";
+        }
+        hamburger.onclick = () => {
+            if (mobileNav.classList.contains('open')) closeNav();
+            else openNav();
+        };
+        hamburger.onkeypress = (e) => {
+            if(e.key === 'Enter' || e.key === ' ') {
+                if (mobileNav.classList.contains('open')) closeNav();
+                else openNav();
+            }
+        };
+        mobileNavOverlay.onclick = () => closeNav();
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeNav();
+        });
+        document.querySelectorAll('.mobile-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 30,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                closeNav();
+            });
+        });
+        // Smooth scroll for desktop nav
+        document.querySelectorAll('.desktop-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId && targetId !== '#') {
+                    const el = document.querySelector(targetId);
+                    if(el) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: el.offsetTop - 30,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
